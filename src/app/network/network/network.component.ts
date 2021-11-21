@@ -1,26 +1,30 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { NetworkService } from '../network.service';
+import nodeData from '../../../../data.json';
+import { InputTopicNode } from '../interfaces/input-topic-node';
+
+
+
 
 @Component({
   selector: 'app-network',
   templateUrl: './network.component.html',
-  styles: [
-  ]
+  styles: [`
+    .wrapper {
+      background-color: #222;
+    }
+  `]
 })
 export class NetworkComponent implements AfterViewInit {
   @ViewChild('network') networkEl: ElementRef;
+  private inputNodes: InputTopicNode[] = nodeData.nodes;
 
   constructor(private network: NetworkService) { }
 
   ngAfterViewInit(): void {
+    console.log(this.inputNodes)
     this.network.init(this.networkEl, {
-      nodes: [
-        { id: 1, label: 'Node 1' },
-        { id: 2, label: 'Node 2' },
-        { id: 3, label: 'Node 3' },
-        { id: 4, label: 'Node 4' },
-        { id: 5, label: 'Node 5' }
-      ],
+      nodes: this.inputNodes.map(x => { return { id: x.id, label: x.title, margin: 10, shape: 'circle', color: { background: '#fff' }, shadow: true } }),
       edges: []
     });
 
@@ -32,7 +36,6 @@ export class NetworkComponent implements AfterViewInit {
         { from: 2, to: 5 }
       ])
     }, 1000);
-
   }
 
 }

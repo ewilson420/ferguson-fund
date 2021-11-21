@@ -1,0 +1,24 @@
+{
+    "nodes": [
+        {
+            "id": "fountain-of-the-great-lakes",
+            "title": "Fountain of the Great Lakes",
+            "date": "1913",
+            "connected_to": [
+                "lorado-taft"
+            ]
+        },
+        {
+            "id": "fountain-of-time",
+            "title": "Fountain of Time",
+            "date": "1917",
+            "connected_to": [
+                "lorado-taft"
+            ]
+        },
+        {
+            "id": "lorado-taft",
+            "title": "Lorado Taft"
+        }
+    ]
+}
