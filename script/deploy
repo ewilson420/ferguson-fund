@@ -1,0 +1,25 @@
+#!/usr/bin/node
+const execSync = require('child_process').execSync;
+
+function run(cmd) {
+    console.log(`Running command:\n${cmd}`);
+    execSync(cmd);
+    console.log('\n---------------------------\n')
+}
+
+run('ng build --base-href="/ferguson-fund/"')
+
+try {
+    run('git checkout gh-pages');
+    run('cp -r dist/ferguson-chicago-history/* .');
+    run('git add .')
+    run('git commit -a -m "New deploy." || true');
+    run('git push origin gh-pages || true');
+} catch (ex) {
+    console.log(ex);
+}
+
+run('git checkout main');
+
+
+

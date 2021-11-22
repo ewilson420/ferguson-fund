@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { NetworkService } from '../network.service';
-import nodeData from '../../../../data.json';
-import { InputTopicNode } from '../interfaces/input-topic-node';
-
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/internal/operators/filter';
+import { NetworkDataService } from '../network-data.service';
+import { NetworkVisService } from '../network-vis.service';
 
 
 
@@ -13,29 +13,47 @@ import { InputTopicNode } from '../interfaces/input-topic-node';
     .wrapper {
       background-color: #222;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NetworkComponent implements AfterViewInit {
   @ViewChild('network') networkEl: ElementRef;
-  private inputNodes: InputTopicNode[] = nodeData.nodes;
+  public columnOneSize = 12;
+  public columnTwoSize = 0;
 
-  constructor(private network: NetworkService) { }
+  constructor(private networkVis: NetworkVisService,
+    private router: Router,
+    private cd: ChangeDetectorRef,
+    private networkData: NetworkDataService) { }
 
   ngAfterViewInit(): void {
-    console.log(this.inputNodes)
-    this.network.init(this.networkEl, {
-      nodes: this.inputNodes.map(x => { return { id: x.id, label: x.title, margin: 10, shape: 'circle', color: { background: '#fff' }, shadow: true } }),
+    this.networkVis.init(this.networkEl, {
+      nodes: this.networkData.getAllNodes(),
       edges: []
     });
 
-    setTimeout(() => {
-      this.network.replaceAllEdges([
-        { from: 1, to: 3 },
-        { from: 1, to: 2 },
-        { from: 2, to: 4 },
-        { from: 2, to: 5 }
-      ])
-    }, 1000);
+    this.networkVis.events.selectNode.subscribe(nodeId => {
+      this.router.navigate(['/', nodeId]);
+    });
+
+    this.networkData.routedNode$.subscribe(nodeId => {
+      this.onRouteToNode(nodeId)
+    });
+  }
+
+  onRouteToNode(nodeId: string | null) {
+    if (nodeId) {
+      this.networkVis.replaceAllEdges(this.networkData.getEdgesOfNode(nodeId));
+      this.networkVis.selectNode(nodeId);
+      this.columnOneSize = 8;
+      this.columnTwoSize = 4;
+    } else {
+      this.networkVis.replaceAllEdges([]);
+      this.columnOneSize = 12;
+      this.columnTwoSize = 0;
+    }
+
+    this.cd.detectChanges();
   }
 
 }

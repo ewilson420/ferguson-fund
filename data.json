@@ -18,7 +18,8 @@
         },
         {
             "id": "lorado-taft",
-            "title": "Lorado Taft"
+            "title": "Lorado Taft",
+            "connected_to": []
         }
     ]
 }

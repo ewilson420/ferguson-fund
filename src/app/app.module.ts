@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,7 +13,8 @@ import { NetworkModule } from './network/network.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NetworkModule
+    NetworkModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
