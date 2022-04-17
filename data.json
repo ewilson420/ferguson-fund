@@ -1,24 +1,211 @@
 {
     "nodes": [
         {
+            "id": "bff",
+            "title": "Benjamin Franklin Ferguson",
+            "text": "adsfa",
+            "connected_to": []
+        },
+        {
             "id": "fountain-of-the-great-lakes",
             "title": "Fountain of the Great Lakes",
-            "date": "1913",
+            "text": "adafad",
             "connected_to": [
-                "lorado-taft"
+                "lorado-taft",
+                "bff",
+                "daniel-burnham",
+                "charles-coolidge"
             ]
         },
         {
             "id": "fountain-of-time",
             "title": "Fountain of Time",
-            "date": "1917",
+            "text": "adafad",
             "connected_to": [
-                "lorado-taft"
+                "lorado-taft",
+                "howard-shaw"
+            ]
+        },
+        {
+            "id": "illinois-centennial-monument",
+            "title": "Illinois Centennial Monument",
+            "text": "adafad",
+            "connected_to": [
+                "evelyn-longman",
+                "henry-bacon"
+            ]
+        },
+        {
+            "id": "spirit-of-music",
+            "title": "Spirit of Music",
+            "text": "adafad",
+            "connected_to": [
+                "albin-polasek",
+                "howard-shaw",
+                "theodore-thomas"
+            ]
+        },
+        {
+            "id": "alexander-hamilton-memorial",
+            "title": "Alexander Hamilton Memorial",
+            "text": "adafad",
+            "connected_to": [
+                "bela-lyon-pratt",
+                "charles-coolidge"
+            ]
+        },
+        {
+            "id": "the-republic",
+            "title": "The Republic",
+            "text": "adafad",
+            "connected_to": [
+                "dc-french",
+                "henry-bacon"
+            ]
+        },
+        {
+            "id": "father-marquette-and-joliet",
+            "title": "Father Marquette & Joliet",
+            "text": "adafad",
+            "connected_to": [
+                "hermon-mcneil",
+                "holabird-and-roche"
+            ]
+        },
+        {
+            "id": "bowman-spearman",
+            "title": "Bowman/Spearman",
+            "text": "adafad",
+            "connected_to": [
+                "ivan-mestrovic",
+                "holabird-and-roche"
+            ]
+        },
+        {
+            "id": "defense-regeneration",
+            "title": "Defense/Regeneration",
+            "text": "adafad",
+            "connected_to": [
+                "henry-hering"
+            ]
+        },
+        {
+            "id": "triton-fountain",
+            "title": "Triton Fountain",
+            "text": "adafad",
+            "connected_to": [
+                "carl-miles"
+            ]
+        },
+        {
+            "id": "eugene-field-nemorial",
+            "title": "Eugene Field Memorial",
+            "text": "adafad",
+            "connected_to": [
+                "edward-mccarten",
+                "delano-aldrich"
             ]
         },
         {
             "id": "lorado-taft",
             "title": "Lorado Taft",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "daniel-burnham",
+            "title": "Daniel Burnham",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "charles-coolidge",
+            "title": "Charles Coolidge",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "howard-shaw",
+            "title": "Howard Shaw",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "evelyn-longman",
+            "title": "Evelyn Longman",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "henry-bacon",
+            "title": "Henry Bacon",
+            "text": "adafad",
+            "connected_to": []
+        },
+        {
+            "id": "albin-polasek",
+            "title": "Albin Polasek",
+            "text": "adfadfadf",
+            "connected_to": []
+        },
+        {
+            "id": "theodore-thomas",
+            "title": "Theodore Thomas",
+            "text": "adfadfadf",
+            "connected_to": []
+        },
+        {
+            "id": "bela-lyon-pratt",
+            "title": "Bela Lyon Pratt",
+            "text": "adfadfadf",
+            "connected_to": []
+        },
+        {
+            "id": "dc-french",
+            "title": "D.C. French",
+            "text": "adfadfadf",
+            "connected_to": []
+        },
+        {
+            "id": "hermon-mcneil",
+            "title": "Hermon McNeil",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "holabird-and-roche",
+            "title": "Holabird & Roche",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "ivan-mestrovic",
+            "title": "Ivan Mestrovic",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "henry-hering",
+            "title": "Henry Hering",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "carl-miles",
+            "title": "Carl Miles",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "edward-mccarten",
+            "title": "Edward McCarten",
+            "text": "",
+            "connected_to": []
+        },
+        {
+            "id": "delano-aldrich",
+            "title": "Delano/Aldrich",
+            "text": "",
             "connected_to": []
         }
     ]

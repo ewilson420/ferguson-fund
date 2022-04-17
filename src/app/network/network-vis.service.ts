@@ -14,13 +14,13 @@ interface VisClickEvent {
 
 const defaultOptions = {
   layout: {
-    clusterThreshold: 200
+    //  clusterThreshold: 200
   },
   physics: {
     // Even though it's disabled the options still apply to network.stabilize().
     solver: "repulsion",
     repulsion: {
-      nodeDistance: 400 // Put more distance between the nodes.
+      nodeDistance: 200 // Put more distance between the nodes.
     }
   }
 }
@@ -42,7 +42,10 @@ export class NetworkVisService {
   public init(el: ElementRef, data: { nodes: InputTopicNode[], edges: [] }, options = {}) {
     this.nodes = new vis.DataSet(data.nodes, { delay: 10 });
     this.edges = new vis.DataSet(data.edges, { delay: 10 });
-    this.vis = new vis.Network(el.nativeElement, { nodes: this.convertToVisNodes(this.nodes), edges: this.edges }, defaultOptions);
+
+    const visNodes = this.convertToVisNodes(this.nodes);
+    console.log(visNodes)
+    this.vis = new vis.Network(el.nativeElement, { nodes: visNodes, edges: this.edges }, defaultOptions);
 
     this.vis.on('selectNode', (data: VisClickEvent) => {
       this.events.selectNode.next(data.nodes[0] ?? null);
@@ -60,14 +63,23 @@ export class NetworkVisService {
 
   private convertToVisNodes(nodes: InputTopicNode[]) {
     return nodes.map(x => {
-      return {
+      const node = {
         id: x.id,
-        label: x.title,
-        margin: 10,
-        shape: 'circle',
+        label: x.title ?? 'Missing title',
+        title: x.title,
+        font: {
+          size: 24
+        },
+        shapeProperties: {
+          borderRadius: 20
+        },
+        shape: 'box',
+        margin: 20,
+        shadow: true,
         color: { background: '#fff' },
-        shadow: true
+
       };
+      return node;
     })
   }
 

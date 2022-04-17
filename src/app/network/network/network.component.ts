@@ -1,6 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/internal/operators/filter';
+import { Router } from '@angular/router';
 import { NetworkDataService } from '../network-data.service';
 import { NetworkVisService } from '../network-vis.service';
 

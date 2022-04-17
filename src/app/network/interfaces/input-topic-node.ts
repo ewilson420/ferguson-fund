@@ -1,6 +1,6 @@
 export interface InputTopicNode {
     id: string;
     title: string;
-    date?: string;
+    text: string;
     connected_to: string[];
 }

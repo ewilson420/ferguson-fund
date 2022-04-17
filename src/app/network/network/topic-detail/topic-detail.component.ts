@@ -12,12 +12,14 @@ import { NetworkVisService } from '../../network-vis.service';
 })
 export class TopicDetailComponent implements OnInit {
   public topic: InputTopicNode;
+  public neighbors: InputTopicNode[] = [];
 
   constructor(private route: ActivatedRoute, private networkData: NetworkDataService, private networkVis: NetworkVisService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.topic = this.networkData.getNode(params['nodeId']);
+      this.neighbors = this.networkData.getNeighborsOfNode(params['nodeId']);
     });
   }
 

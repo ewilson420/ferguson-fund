@@ -2,4 +2,28 @@
   <h3>
     {{ topic.title }}
   </h3>
+
+  <div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Turpis massa tincidunt
+    dui ut ornare lectus sit amet est. At risus viverra adipiscing at in tellus
+    integer. Ut porttitor leo a diam sollicitudin tempor id. Imperdiet massa
+    tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Tellus
+    mauris a diam maecenas sed enim ut. Lacus sed viverra tellus in hac
+    habitasse platea dictumst. Adipiscing tristique risus nec feugiat in. Mattis
+    enim ut tellus elementum. Feugiat in fermentum posuere urna nec tincidunt.
+    Nisl condimentum id venenatis a condimentum vitae sapien pellentesque
+    habitant. Rhoncus mattis rhoncus urna neque viverra. Egestas diam in arcu
+    cursus euismod quis viverra nibh. Molestie nunc non blandit massa enim nec
+    dui nunc.
+  </div>
+
+  <div *ngIf="neighbors.length > 0" class="mt-3">
+    Related to:
+    <ul>
+      <li *ngFor="let neighbor of neighbors">
+        <a [routerLink]="['/', neighbor.id]"> {{ neighbor.title }}</a>
+      </li>
+    </ul>
+  </div>
 </div>
